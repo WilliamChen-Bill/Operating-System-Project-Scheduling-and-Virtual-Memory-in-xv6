@@ -1,12 +1,15 @@
 ## Operating System Project
 #### Scheduling and Virtual Memory in xv6
+---
 * This is a simple priority-based scheduler. For all processes contain number of ticket. If a process sets its ticket value to 1 it has **high** priority; otherwise, a process should have a ticket value of 0 and thus have **low** priority. All other ticket values are not valid; **1 (high priority)** should be the default. **High-Priority** processes should always have priority over **Low-Priority** processes. 
 * Case1: If there is a single **High-Priority** process and a single **Low-Priority** process, the **High-Priority** one will run to completion, and starving the **Low-Priority** process.
 * Case2: If there two or more processes with **Same Priority**, they should alternate **Round-Robin**.
 ###### The objectives for this project:
+---
 * To gain futher knowledge of a real kernel, xv6.
 * To change that scheduler to a new algorithm.
 #### Details
+---
 You'll need two new system calls to implement this scheduler. 
 * The first is `int settickets(int number)`, which sets the number of tickets of the calling process. By default, each process can raise the number of tickets it receives, and thus receive a higher proportion of CPU cycles. This routine should **return 0** if successful, and **-1** otherwise(if, for example, the caller passes in a number less than one).
 * The second is `int getpinfo(struct pstat*)`. This routine returns some information about all running processes, including how many times each has been chosen to run and the process ID of each. You can use this system call to build a variant of the command line program `ps`, which can then be called to see what is going on. The structure `pstat` is defined below; note, you cannot change this structure, and must use it exactly as is. This routine should **return 0** if successful, and **-1** otherwise (if, for example, a **bad** or **NULL** pointer is passed into the kernel).
@@ -27,6 +30,7 @@ struct pstat {
 #endif// _PSTAT_H_
 ```
 #### Solution:
+---
 * Modified **c** file: **`exec.c`**, **`proc.c`**, **`syscall.c`**, **`sysproc.c`**, **`vm.c`**
 * Modified **header** file: **`defs.h`**, **`proc.h`**, **`syscall.h`**, **`user.h`**
 * Modified **other** file: **`usys.S`**
