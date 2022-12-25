@@ -27,17 +27,12 @@ struct pstat {
 #endif// _PSTAT_H_
 ```
 #### Solution:
-* Modified **c** file:
-    > **`exec.c`**
-    > **`proc.c`**
-    > **`syscall.c`**
-    > **`sysproc.c`**
-    > **`vm.c`**
-* Modified **header** file:
-    > **`defs.h`**
-    > **`proc.h`**
-    > **`syscall.h`**
-    > **`user.h`**
-
+* Modified **c** file: **`exec.c`**, **`proc.c`**, **`syscall.c`**, **`sysproc.c`**, **`vm.c`**
+* Modified **header** file: **`defs.h`**, **`proc.h`**, **`syscall.h`**, **`user.h`**
+* Modified **other** file: **`usys.S`**
+* Add system call in xv6 [reference website](https://www.geeksforgeeks.org/xv6-operating-system-adding-a-new-system-call/).
+    * need to modify **`syscall.h`**, **`syscall.c`**, **`sysproc.c`**, **`usys.S`**, **`user.h`**.
+    * add system call `int settickets(int number)`,`int getpinfo(struct pstat *ps)`, `int mprotect(void *addr, int len)`,`int munprotect(void *addr, int len)`
+    * modify or add some code to the rest of the modified file.
 
 
