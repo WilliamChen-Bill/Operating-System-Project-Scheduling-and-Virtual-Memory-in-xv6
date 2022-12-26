@@ -1,4 +1,4 @@
-# Operating System Project:Scheduling and Virtual Memory in xv6
+# Operating System Project: Scheduling and Virtual Memory in xv6
 
 # Scheduling Part:
 * About scheduling, we will implement a simple priority-based scheduler. For all processes contain number of ticket. If a process sets its ticket value to 1 it has **high** priority; otherwise, a process should have a ticket value of 0 and thus have **low** priority. All other ticket values are not valid; **1 (high priority)** should be the default. **High-Priority** processes should always have priority over **Low-Priority** processes. 
